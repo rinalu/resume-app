@@ -1,0 +1,29 @@
+.navbar.navbar-expand-lg {
+    padding: 0;
+    position: relative;
+    a {
+        padding: 0 0 0 8px;
+        #logo {
+            width: 100px;
+        };
+    };
+}
+
+#navbarSupportedContent > ul {
+    padding-right: 12px;
+    li.nav-item.navigations {
+        margin: auto;
+        padding: 0 20px;
+    }
+}
+
+.nav-item.contact-info {
+    cursor: pointer;
+    div.dropdown-menu.show {
+        right: 0;
+        left: auto;
+    };
+    img {
+        width: 35px;
+    };
+}

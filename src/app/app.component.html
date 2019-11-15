@@ -1,16 +1,36 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1>Rina Lu</h1>
-    <p>BASc, Electrical Engineering, Honours, Co-operative Program with Distinction</p>
-    <p>University of Waterloo</p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-sm-2">
-    <h4>Skills Summary</h4>
-  </div>
-  <div class="col-sm-10">
-    <h4>Experiences (Co-op)</h4>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">
+        <img id="logo" src="assets/logo.png">
+    </a>
+    <button (click)="navbarCollapsed=!navbarCollapsed" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="navbarCollapsed">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item navigations">
+                <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item navigations">
+                <a class="nav-link" routerLink="/journal" routerLinkActive="active">Bullet Journal</a>
+            </li>
+            <li class="nav-item navigations">
+                <a class="nav-link" routerLink="/about" routerLinkActive="active">About me</a>
+            </li>
+            <li ngbDropdown class="nav-item dropdown contact-info">
+                <a ngbDropdownToggle class="nav-link dropdown-toggle" id="contactInfo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="assets/image/avatar.png">
+                </a>
+                <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="contactInfo">
+                    <label class="dropdown-item" href="#">Cell</label>
+                    <span class="dropdown-item">xxx-xxx-xxxx</span>
+                    <div class="dropdown-divider"></div>
+                    <label class="dropdown-item" href="#">Email</label>
+                    <span class="dropdown-item">xxx@edu.uwaterloo.ca</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>

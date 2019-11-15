@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'main-body',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['../assets/scss/app.scss']
 })
+
 export class AppComponent {
-  title = 'resume-app';
+    navbarCollapsed = true;
+    title = 'Rina\'s Playground';
 }

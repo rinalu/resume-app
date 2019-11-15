@@ -1,0 +1,14 @@
+<form class="login-form">
+    <div class="form-group">
+        <label for="companyNameAuth">Company Name</label>
+        <input type="text" class="form-control" id="companyNameAuth" placeholder="Enter company name here">
+        <small class="form-text text-muted" id="authHelp">Just enter your company name, ignoring case.</small>
+    </div>
+    <button type="submit" (click)="login()" class="btn btn-primary">Authenticate</button>
+</form>
+
+<ul>
+  <li *ngFor="let item of items | async">
+    {{ item.company }}
+  </li>
+</ul>
