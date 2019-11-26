@@ -13,27 +13,22 @@ const routes: Routes = [
         component: AuthComponent
     },
     {
-        path: '',
+        path: 'about',
         canActivate: [AuthGuard],
-        children: [
-            {
-                path: 'about',
-                component: AboutComponent
-            },
-            {
-                path: 'journal',
-                component: JournalComponent
-            },
-            {
-                path: '',
-                redirectTo: 'home',
-                pathMatch: 'full'
-            },
-            {
-                path: '**',
-                component: PageNotFoundComponent
-            }
-        ]
+        component: AboutComponent
+    },
+    {
+        path: 'journal',
+        component: JournalComponent
+    },
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        component: PageNotFoundComponent
     }
 ];
 

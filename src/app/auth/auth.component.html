@@ -1,11 +1,24 @@
-<form class="login-form">
-    <div class="form-group">
-        <label for="companyNameAuth">Company Name</label>
-        <input type="text" class="form-control" id="companyNameAuth" placeholder="Enter company name here">
-        <small class="form-text text-muted" id="authHelp">Just enter your company name, ignoring case.</small>
+<ng-template #authModal let-modal>
+    <div class="modal-header">
+        <h4>Simple Authentication</h4>
+        <fa-icon [icon]="faQuestionCircle" [ngbPopover]="explainText" triggers="mouseenter:mouseleave"></fa-icon>
+        <button type="button" class="close">
+            <span aria-hidden="true" (click)="modal.dismiss('Avoid auth.')">&times;</span>
+        </button>
     </div>
-    <button type="submit" (click)="login()" class="btn btn-primary">Authenticate</button>
-</form>
+    <div class="modal-body">
+        <form class="login-form">
+            <div class="form-group">
+                <label for="companyNameAuth">Company Name</label>
+                <input type="text" class="form-control" id="companyNameAuth"
+                    [(ngModel)]="companyName" name="companyName"
+                    placeholder="Enter company name here" required>
+                <small class="form-text text-muted" id="authHelp">Just enter your company name, ignoring case.</small>
+            </div>
+            <button type="submit" (click)="login()" class="btn btn-primary">Log in</button>
+        </form>
+    </div>
+</ng-template>
 
 <ul>
   <li *ngFor="let item of items | async">

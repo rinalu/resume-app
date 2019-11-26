@@ -1,3 +1,11 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@media (max-width: 768px) {
+    .container {
+        max-width: inherit;
+    }
+}
+
 .navbar.navbar-expand-lg {
     padding: 0;
     position: relative;
@@ -6,24 +14,25 @@
         #logo {
             width: 100px;
         };
-    };
-}
-
-#navbarSupportedContent > ul {
-    padding-right: 12px;
-    li.nav-item.navigations {
-        margin: auto;
-        padding: 0 20px;
     }
-}
-
-.nav-item.contact-info {
-    cursor: pointer;
-    div.dropdown-menu.show {
-        right: 0;
-        left: auto;
-    };
-    img {
-        width: 35px;
-    };
+    #navbarSupportedContent {
+        ul.navbar-nav {
+            padding-right: 12px;
+            li.nav-item {
+                margin: auto;
+                padding: 0 20px;
+                &.contact-info {
+                    cursor: pointer;
+                    div.dropdown-menu.show {
+                        right: 0;
+                        left: auto;
+                        position: absolute;
+                    };
+                    img {
+                        width: 35px;
+                    };
+                }
+            }
+        }
+    }
 }

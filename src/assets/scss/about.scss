@@ -1,0 +1,30 @@
+.row.skills-exp-section {
+    h6 {
+        font-weight: 300;
+        letter-spacing: 1.5px;
+    }
+    .skill-subsection {
+        list-style: none;
+        padding: 0;
+        .skill {
+            fa-icon {
+                padding-right: 7px;
+            }
+            &:first-child {
+                font-size: 15px;
+                font-weight: bold;
+                text-align: center;
+                fa-icon {
+                    display: none;
+                }
+            }
+        }
+    }
+    .card.exp-subsection {
+        .card-text.exp-detail {
+            fa-icon {
+                padding-right: 7px;
+            }
+        }
+    }
+}
