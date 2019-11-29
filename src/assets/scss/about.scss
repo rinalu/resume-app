@@ -1,4 +1,11 @@
+@media (max-width: 768px) {
+    .container.about-display {
+        max-width: inherit;
+    }
+}
+
 .row.skills-exp-section {
+    font-family: Tahoma, sans-serif;
     h6 {
         font-weight: 300;
         letter-spacing: 1.5px;

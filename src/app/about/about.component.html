@@ -1,31 +1,33 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1>Rina Lu</h1>
-    <p>BASc, Electrical Engineering, Honours, Co-operative Program with Distinction</p>
-    <p>University of Waterloo</p>
-  </div>
-</div>
-
-<div class="row skills-exp-section">
-  <div class="col-12 col-sm-3 col-lg-2">
-    <h6>SKILLS SUMMARY</h6>
-    <ul class="skill-subsection" *ngFor="let skills of aboutService.skillList">
-        <li class="skill" *ngFor="let skill of skills">
-            <fa-icon [icon]="faCaretRight"></fa-icon>{{ skill }}
-        </li>
-    </ul>
-  </div>
-  <div class="col-12 col-sm-9 col-lg-10">
-    <h6>EXPERIENCES (Co-op)</h6>
-    <div class="card exp-subsection" *ngFor="let exp of aboutService.experienceList">
-        <div class="card-body">
-            <p class="dates">{{ exp.start_date | date:'MMMM dd, y' }} &ndash; {{ exp.end_date | date:'MMMM dd, y' }}</p>
-            <h6 class="card-subtitle mb-2 text-muted">{{ exp.company }}</h6>
-            <h5 class="card-title">{{ exp.position }}</h5>
-            <p class="card-text exp-detail" *ngFor="let detail of exp.details">
-                <fa-icon [icon]="faCaretRight"></fa-icon>{{ detail }}
-            </p>
-        </div>
+<div class="container about-display">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1>Rina Lu</h1>
+        <p>BASc, Electrical Engineering, Honours, Co-operative Program with Distinction</p>
+        <p>University of Waterloo</p>
+      </div>
     </div>
-  </div>
+
+    <div class="row skills-exp-section">
+      <div class="col-12 col-sm-3 col-lg-2">
+        <h6>SKILLS SUMMARY</h6>
+        <ul class="skill-subsection" *ngFor="let skills of aboutService.skillList">
+            <li class="skill" *ngFor="let skill of skills">
+                <fa-icon [icon]="faCaretRight"></fa-icon>{{ skill }}
+            </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-9 col-lg-10">
+        <h6>EXPERIENCES (Co-op)</h6>
+        <div class="card exp-subsection" *ngFor="let exp of aboutService.experienceList">
+            <div class="card-body">
+                <p class="dates">{{ exp.start_date | date:'MMMM dd, y' }} &ndash; {{ exp.end_date | date:'MMMM dd, y' }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">{{ exp.company }}</h6>
+                <h5 class="card-title">{{ exp.position }}</h5>
+                <p class="card-text exp-detail" *ngFor="let detail of exp.details">
+                    <fa-icon [icon]="faCaretRight"></fa-icon>{{ detail }}
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
 </div>

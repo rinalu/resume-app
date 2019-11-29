@@ -1,14 +1,14 @@
-@import "~bootstrap/scss/_functions.scss";
-@import "~bootstrap/scss/_variables.scss";
-@media (max-width: 768px) {
-    .container {
-        max-width: inherit;
-    }
-}
-
 .navbar.navbar-expand-lg {
     padding: 0;
-    position: relative;
+    z-index: 99;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    font-family: Tahoma, sans-serif;
+    &.sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
     a {
         padding: 0 0 0 8px;
         #logo {
@@ -16,6 +16,7 @@
         };
     }
     #navbarSupportedContent {
+        position: relative;
         ul.navbar-nav {
             padding-right: 12px;
             li.nav-item {
@@ -35,4 +36,9 @@
             }
         }
     }
+}
+
+// top padding for navbar reposition glitch
+.navbar.navbar-expand-lg.sticky + .main-display {
+    padding-top: 50px;
 }

@@ -1,0 +1,36 @@
+<div class="jumbotron jumbotron-fluid welcome-jumbotron" [ngStyle]="{'background-image': backImageUrl}">
+    <div class="animation-display" [@startGrowth]="growthState" [ngStyle]="{'background-image': imageUrl}" (@startGrowth.done)="setBackImage()"></div>
+    <!--img [@budding]="growthState" class= "tree-state" src="../../assets/image/welcome_2.png">
+    <img [@leaves]="growthState" class= "tree-state" src="../../assets/image/welcome_3.png">
+    <img [@grown]="growthState" class= "tree-state" src="../../assets/image/welcome_4.png"-->
+    <div class="container">
+        <h1 class="display-4">Welcome</h1>
+        <p class="lead">This is an Angular project using Firestore by Firebase.</p>
+    </div>
+</div>
+<div class="jumbotron jumbotron-fluid angular-intro">
+    <div class="container">
+        <h1 class="display-4">Angular Frontend</h1>
+        <ul>
+            <li><p>CLI Version 8.3.4</p></li>
+            <li><p>Node Version 10.16.3</p></li>
+            <li><p>Design using Bootstrap 4</p></li>
+            <li><p>Free SVG Icons provided by FontAwesome</p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid firebase-intro">
+    <div class="container">
+        <h1 class="display-4">Firebase Server</h1>
+        <ul>
+            <li><p>Using Firestore as database</p></li>
+            <li><p>Firebase hosting setup in progress</p></li>
+            <li><p>Supported by angular/firestore</p></li>
+        </ul>
+    </div>
+</div>
+
+<div class="jumbotron jumbotron-fluid unfinished-banner">
+    <h1>Parts underconstruction</h1>
+</div>

@@ -5,26 +5,31 @@ import { AuthGuard } from './auth/auth.guard';
 import { AboutComponent } from './about/about.component';
 import { JournalComponent } from './journal/journal.component';
 import { AuthComponent } from './auth/auth.component';
+import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {
-        path: 'auth',
-        component: AuthComponent
-    },
-    {
-        path: 'about',
-        canActivate: [AuthGuard],
-        component: AboutComponent
+        path: 'home',
+        component: HomeComponent
     },
     {
         path: 'journal',
         component: JournalComponent
     },
     {
+        path: 'about',
+        // canActivate: [AuthGuard],
+        component: AboutComponent
+    },
+    {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'
+        pathMatch: 'full',
+    },
+    {
+        path: 'auth',
+        component: AuthComponent
     },
     {
         path: '**',

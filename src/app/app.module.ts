@@ -1,5 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -13,26 +14,29 @@ import { JournalModule } from './journal/journal.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { AuthComponent } from './auth/auth.component';
+import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthComponent,
-    AboutComponent,
-    PageNotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    JournalModule,
-    AppRoutingModule,
-    NgbModule,
-    FontAwesomeModule,
-    AngularFireModule.initializeApp(environment.firebase, 'resume-app'),
-    AngularFirestoreModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        AuthComponent,
+        AboutComponent,
+        HomeComponent,
+        PageNotFoundComponent,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        JournalModule,
+        AppRoutingModule,
+        NgbModule,
+        FontAwesomeModule,
+        AngularFireModule.initializeApp(environment.firebase, 'resume-app'),
+        AngularFirestoreModule
+    ],
+    providers: [],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }

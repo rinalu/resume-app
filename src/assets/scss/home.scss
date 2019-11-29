@@ -1,0 +1,107 @@
+.jumbotron.welcome-jumbotron {
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    background-image: url('../image/welcome_1.png');
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    div.animation-display {
+        float: left;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-position: top left;
+        background-repeat: no-repeat;
+    }
+    div.container {
+        position: absolute;
+        top: 300px;
+        right: 150px;
+        z-index: 2;
+        h1, p {
+            font-weight: 400;
+            text-align: right;
+        }
+    }
+}
+
+.jumbotron.angular-intro {
+    height: 900px;
+    position: relative;
+    margin: 0;
+    background-image: url('../image/angular-intro.png');
+    background-repeat: no-repeat;
+    background-color: #30343c;
+    background-size: cover;
+    div {
+        position: absolute;
+        top: 300px;
+        left: 150px;
+        background: rgba(48, 52, 60, 0.7);
+        width: auto;
+        border-radius: 20px;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            p {
+                font-size: 20px;
+                font-family: sans-serif;
+            }
+        }
+        h1, p {
+            text-shadow: 1px 1px 10px #30343c;
+            font-weight: 400;
+            color: #ffffff;
+        }
+    }
+}
+
+.jumbotron.firebase-intro {
+    height: 900px;
+    position: relative;
+    margin: 0;
+    background-image: url('../image/firebase-intro.png');
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    background-size: cover;
+    div {
+        position: absolute;
+        top: 300px;
+        right: 150px;
+        background: rgba(255, 255, 255, 0.7);
+        width: auto;
+        border-radius: 20px;
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            p {
+                font-size: 20px;
+                font-family: sans-serif;
+            }
+        }
+        h1, p {
+            font-weight: 400;
+            text-align: right;
+        }
+    }
+}
+
+.jumbotron.unfinished-banner {
+    background-color: #c5c5c5;
+    h1 {
+        text-align: center;
+        color: #ffffff;
+    }
+}
+
+@media (max-width: 768px) {
+    .jumbotron.welcome-jumbotron div.container, .jumbotron.firebase-intro div.container {
+        right: 0;
+    }
+    .jumbotron.angular-intro div.container {
+        left: 0;
+    }
+}
