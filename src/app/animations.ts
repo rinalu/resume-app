@@ -11,3 +11,11 @@ export const growthAnimation = [
         ])
     ])
 ];
+
+export const stateChangeAnimation = [
+    trigger('stateChange', [
+        transition('* => loggedIn', [
+            animate('2s ease-in')
+        ])
+    ])
+];

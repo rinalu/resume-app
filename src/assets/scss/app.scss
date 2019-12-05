@@ -1,14 +1,30 @@
-.navbar.navbar-expand-lg {
-    padding: 0;
-    z-index: 99;
-    background-color: #FFFFFF;
-    overflow: hidden;
-    font-family: Tahoma, sans-serif;
-    &.sticky {
+@media (min-width: 768px) {
+    nav.navbar.navbar-light.sticky {
         position: fixed;
         top: 0;
         width: 100%;
     }
+
+    // top padding for navbar reposition glitch
+    nav.navbar.navbar-light.sticky + .main-display {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav.navbar.navbar-light {
+        // prevent scroll glitch when menu is open
+        overflow-y: auto;
+        max-height: 100%;
+    }
+}
+
+nav.navbar.navbar-light {
+    padding: 0;
+    z-index: 99;
+    background-color: #FFFFFF;
+    // overflow: hidden;
+    font-family: Tahoma, sans-serif;
     a {
         padding: 0 0 0 8px;
         #logo {
@@ -36,9 +52,4 @@
             }
         }
     }
-}
-
-// top padding for navbar reposition glitch
-.navbar.navbar-expand-lg.sticky + .main-display {
-    padding-top: 50px;
 }

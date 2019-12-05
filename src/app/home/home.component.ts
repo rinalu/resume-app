@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { growthAnimation } from './home.animations';
+import { growthAnimation } from '../animations';
 
 @Component({
     selector: 'app-home',

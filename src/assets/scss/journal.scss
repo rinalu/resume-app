@@ -1,0 +1,43 @@
+@media (min-width: 768px) {
+    div.journal-display-region {
+        align-self: flex-end !important;
+    }
+}
+
+.row.journal-row {
+    margin: 0;
+    min-height: 600px;
+    div.bj-display-region {
+        height: 100%;
+        h1 {
+            height: 80%;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+        div.logged-display {
+            display: none;
+        }
+    }
+    div.row.work-area {
+        height: 100%;
+        .journal-editing-region {
+            margin-top: 50px;
+            .edit-groups {
+                padding: 10px 5px 10px 0;
+                margin-bottom: 20px;
+                button.new-task-region {
+                    width: 100%;
+                }
+            }
+        }
+        .journal-display-region {
+            margin-top: 50px;
+            .display-groups {
+                padding: 10px 5px 10px 0;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
