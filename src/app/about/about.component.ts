@@ -18,7 +18,6 @@ export class AboutComponent {
     constructor(private aboutService: AboutService, private db: AngularFirestore) {
         aboutService.getSkills();
         aboutService.getExperiences();
-        // console.log(this.aboutService.experienceList);
         // console.log(this.aboutService.skillList);
     }
 

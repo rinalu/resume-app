@@ -81,6 +81,6 @@ export class JournalComponent {
     }
 
     ngOnDestroy() {
-        this.journalService.subscriptions.forEach(s => s.unsubscribe());
+        this.journalService.subscriptions.map(s => s.unsubscribe());
     }
 }
