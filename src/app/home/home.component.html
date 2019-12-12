@@ -1,8 +1,5 @@
 <div class="jumbotron jumbotron-fluid welcome-jumbotron" [ngStyle]="{'background-image': backImageUrl}">
     <div class="animation-display" [@startGrowth]="growthState" [ngStyle]="{'background-image': imageUrl}" (@startGrowth.done)="setBackImage()"></div>
-    <!--img [@budding]="growthState" class= "tree-state" src="../../assets/image/welcome_2.png">
-    <img [@leaves]="growthState" class= "tree-state" src="../../assets/image/welcome_3.png">
-    <img [@grown]="growthState" class= "tree-state" src="../../assets/image/welcome_4.png"-->
     <div class="container">
         <h1 class="display-4">Welcome</h1>
         <p class="lead">This is an Angular project using Firestore by Firebase.</p>

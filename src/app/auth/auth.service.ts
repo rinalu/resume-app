@@ -16,17 +16,24 @@ export class AuthService {
 
     getCompany(companyName: string): Observable<any> {
         return this.db.collection('companies', ref =>
-            ref.where('name', '==', companyName.toLowerCase()).limit(1))
-            .snapshotChanges().pipe(map(actions => actions.map(a => {
-                const data = a.payload.doc.data();
-                const id = a.payload.doc.id;
-                return { id, ...data };
-            })));
+            ref.where('name', '==', companyName.toLowerCase()).limit(1)).get()
+            .pipe(map(snapshot => {
+                snapshot.forEach(e => {
+                    const data = e.data();
+                    const id = e.id;
+                    this.usage = data.usage;
+                    this.docId = id;
+                    this.authenticated = true;
+                    return { id, ...data }
+                })
+            }));
     }
 
     updateUsage(): void {
-        this.db.doc('companies/' + this.docId).update({
-            usage: this.usage + 1
-        });
+        if (this.authenticated) {
+            this.db.doc('companies/' + this.docId).update({
+                usage: this.usage + 1
+            });
+        }
     }
 }

@@ -16,8 +16,23 @@
             margin: 0 auto 20px;
             text-align: center;
         }
-        div.logged-display {
-            display: none;
+        div.login-group {
+            position: relative;
+            font-size: 15px;
+            div.startup-display {
+                width: 100%;
+                text-align: center;
+                span {
+                    vertical-align: middle;
+                    font-size: 17px;
+                }
+            }
+            div.login-display {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                text-align: center;
+            }
         }
     }
     div.row.work-area {

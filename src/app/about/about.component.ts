@@ -13,12 +13,10 @@ import { AboutService } from './about.service';
 
 export class AboutComponent {
     faCaretRight = faCaretRight;
-    skillList: string[] = [];
 
     constructor(private aboutService: AboutService, private db: AngularFirestore) {
         aboutService.getSkills();
         aboutService.getExperiences();
-        // console.log(this.aboutService.skillList);
     }
 
     ngOnDestroy() {

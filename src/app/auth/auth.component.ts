@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
@@ -21,6 +21,7 @@ export class AuthComponent {
     explainText: string;
     modalInstance: any;
     items: Observable<any[]>;
+    subscriptions: Subscription[] = [];
     constructor(
         private authService: AuthService, private db: AngularFirestore,
         private modalService: NgbModal, public router: Router
@@ -39,15 +40,11 @@ export class AuthComponent {
     }
 
     login() {
-        this.authService.getCompany(this.companyName).subscribe(
-            (res:any) => {
-                if (res.length == 1) {
+        let sub = this.authService.getCompany(this.companyName).subscribe(
+            (res:any[]) => {
+                if (this.authService.authenticated) {
                     let redirectUrl = this.authService.redirectUrl ?
                     this.router.parseUrl(this.authService.redirectUrl) : '/home';
-
-                    this.authService.docId = res.id;
-                    this.authService.usage = res.usage;
-                    this.authService.authenticated = true;
 
                     this.modalInstance.close();
                     this.router.navigateByUrl(redirectUrl);
@@ -55,8 +52,13 @@ export class AuthComponent {
             },
             (err) => {},
             () => {
-                // this.authService.updateUsage();
+                this.authService.updateUsage();
             }
         );
+        this.subscriptions.push(sub);
+    }
+
+    ngOnDestroy() {
+        this.subscriptions.map(s => s.unsubscribe());
     }
 }

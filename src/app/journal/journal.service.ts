@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
     providedIn: 'root'
 })
 export class JournalService {
     sessionTasks:any[] = [];
-    uid:string = '';
     subscriptions:Subscription[] = [];
-    private collectionRef:AngularFirestoreCollection<any>;
-    constructor(private db: AngularFirestore, private afAuth:AngularFireAuth) {}
 
-    getTasks(uid:string):void {
+    private uid:string = '';
+    private collectionRef:AngularFirestoreCollection<any>;
+    constructor(private db: AngularFirestore) {}
+
+    getTasks(uid:string): Observable<any[]> {
         this.uid = uid;
         this.collectionRef = this.db.collection('notes').doc(uid).collection('tasks');
-        this.subscriptions.push(this.collectionRef.get().pipe(
-            map(snapshot => {
-                snapshot.forEach(e => {
-                    this.sessionTasks.push({ docId: e.id, ...e.data() });
-                });
-            }),
-        ).subscribe());
+        this.subscriptions.push(this.collectionRef.get().pipe(map(snapshot =>
+            snapshot.docs.map(e => ({ docId: e.id, ...e.data() })))
+        ).subscribe(res => this.sessionTasks = res));
+        return this.collectionRef.snapshotChanges().pipe(
+            map(actions => actions.map(a => {
+                const docId = a.payload.doc.id;
+                const data = a.payload.doc.data();
+                return { docId, ...data }
+            }))
+        );
     }
 
     removeTask(i:number, docId:any):void {
