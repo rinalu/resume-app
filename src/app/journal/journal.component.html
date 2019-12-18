@@ -3,11 +3,12 @@
         <div class="bj-display-region">
             <h1>Bullet Journal</h1>
             <div class="login-group">
-                <button type="button" class="btn btn-light" (click)="login()">Login</button>
-                <span>to Start</span>
-            </div>
-            <div class="logged-display">
-                <p>Type to add, Delete if wrong.</p>
+                <div [@stateChange]="userState" class="startup-display">
+                    <span>Please</span><button type="button" class="btn btn-light" (click)="login()">Login</button>
+                </div>
+                <div [@stateChange]="!userState" class="login-display">
+                    <p>Type to add, Save to upload.</p>
+                </div>
             </div>
         </div>
     </div>

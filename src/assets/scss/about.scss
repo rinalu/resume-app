@@ -1,37 +1,96 @@
 @media (max-width: 768px) {
-    .container.about-display {
+    div.container.about-display {
         max-width: inherit;
+        padding: 2px;
     }
 }
 
-.row.skills-exp-section {
-    font-family: Tahoma, sans-serif;
-    h6 {
-        font-weight: 300;
-        letter-spacing: 1.5px;
+div.container.about-display {
+    font-family: Calibri, Tahoma, sans-serif;
+    .jumbotron.jumbotron-fluid {
+        background-image: url();
+        margin-bottom: 0;
+        div.highlight-display {
+            margin: 0 30px;
+        }
     }
-    .skill-subsection {
-        list-style: none;
-        padding: 0;
-        .skill {
-            fa-icon {
-                padding-right: 7px;
+
+    .row.skills-exp-section {
+        h6 {
+            color: #959394;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            font-size: 20px;
+        }
+        div.col-lg-2.skills-region {
+            border: 1px solid rgba(0,0,0,.125);
+            border-style: none solid solid;
+            padding: 20px 0 0 7px;
+            ul.skill-subsection {
+                list-style: none;
+                padding: 0;
+                margin-top: 10px;
+                li.skill {
+                    font-size: 17px;
+                    margin: 2px;
+                    fa-icon {
+                        padding-right: 7px;
+                    }
+                    &:first-child {
+                        color: #959394;
+                        font-size: 18px;
+                        font-weight: 300;
+                        letter-spacing: 1.5px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        fa-icon {
+                            display: none;
+                        }
+                    }
+                }
             }
-            &:first-child {
-                font-size: 15px;
-                font-weight: bold;
-                text-align: center;
-                fa-icon {
-                    display: none;
+        }
+
+        div.col-lg-10.exps-region {
+            padding-top: 20px;
+            div.card.exp-subsection {
+                border-radius: 0;
+                border-style: solid none none;
+                &:last-child {
+                    border-style: solid none;
+                }
+                div.card-body {
+                    color: #323232;
+                    font-size: 14px;
+                    padding: 10px 20px;
+                    p.dates, h5.card-title {
+                        margin: 0;
+                        letter-spacing: 0.5px;
+                    }
+                    h6.card-subtitle {
+                        margin: 1px;
+                        font-size: 14px;
+                        letter-spacing: 0.5px;
+                    }
+                    .card-text.exp-detail {
+                        margin: 5px 0;
+                        font-size: 17px;
+                        fa-icon {
+                            padding-right: 7px;
+                        }
+                    }
                 }
             }
         }
     }
-    .card.exp-subsection {
-        .card-text.exp-detail {
-            fa-icon {
-                padding-right: 7px;
-            }
+
+    .row.relevant-info {
+        padding: 20px 7px;
+        h6 {
+            color: #959394;
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            font-size: 20px;
         }
     }
 }

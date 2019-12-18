@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faSave } from '@fortawesome/free-regular-svg-icons'
 
 import { JournalService } from './journal.service';
+import { stateChangeAnimation } from '../animations';
 
 @Component({
-  selector: 'journal',
-  templateUrl: './journal.component.html',
-  styleUrls: ['../../assets/scss/journal.scss']
+    selector: 'journal',
+    templateUrl: './journal.component.html',
+    styleUrls: ['../../assets/scss/journal.scss'],
+    animations: stateChangeAnimation
 })
 
 export class JournalComponent {
@@ -20,13 +20,13 @@ export class JournalComponent {
     faTrashAlt = faTrashAlt;
 
     tasksSaved:Observable<any[]>;
-    constructor(private afAuth:AngularFireAuth, private db: AngularFirestore,
-        private journalService:JournalService) {
-            const user = this.afAuth.auth.currentUser;
-            if (user) {
-                this.getUserTasks(user.uid);
-            }
+    userState:Boolean = false;
+    constructor(private afAuth:AngularFireAuth, private journalService:JournalService) {
+        const user = this.afAuth.auth.currentUser;
+        if (user) {
+            this.getUserTasks(user.uid);
         }
+    }
 
     login() {
         this.afAuth.auth.signInAnonymously();
@@ -37,16 +37,9 @@ export class JournalComponent {
     }
 
     getUserTasks(uid:string) {
-        this.tasksSaved = this.db.collection('notes').doc(uid).collection('tasks')
-            .snapshotChanges().pipe(
-                map(actions => actions.map(a => {
-                    const docId = a.payload.doc.id;
-                    const data = a.payload.doc.data();
-                    return { docId, ...data }
-                }))
-            );
+        this.userState = true;
         if (this.journalService.sessionTasks.length === 0)
-            this.journalService.getTasks(uid);
+            this.tasksSaved = this.journalService.getTasks(uid);
     }
 
     markDone(docId:string) {
@@ -81,6 +74,6 @@ export class JournalComponent {
     }
 
     ngOnDestroy() {
-        this.journalService.subscriptions.forEach(s => s.unsubscribe());
+        this.journalService.subscriptions.map(s => s.unsubscribe());
     }
 }

@@ -14,8 +14,14 @@ export const growthAnimation = [
 
 export const stateChangeAnimation = [
     trigger('stateChange', [
-        transition('* => loggedIn', [
-            animate('2s ease-in')
-        ])
+        state('true', style({
+            transform:'translate(-150%)'
+        })),
+        transition('false => true', [
+            animate('300ms ease-in')
+        ]),
+        transition('true => false', [
+            animate('300ms ease-in')
+        ]),
     ])
 ];

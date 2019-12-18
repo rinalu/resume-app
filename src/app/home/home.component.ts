@@ -32,7 +32,8 @@ export class HomeComponent {
     }
 
     setBackImage() {
-        if (this.growthState > 1)
-            this.backImageUrl = this.imageUrl;
+        if (this.growthState > 1) {
+            setTimeout(() => this.backImageUrl = this.imageUrl, 200);
+        }
     }
 }
