@@ -21,7 +21,7 @@ export class JournalComponent {
 
     tasksSaved:Observable<any[]>;
     userState:Boolean = false;
-    constructor(private afAuth:AngularFireAuth, private journalService:JournalService) {
+    constructor(private afAuth:AngularFireAuth, public journalService:JournalService) {
         const user = this.afAuth.auth.currentUser;
         if (user) {
             this.getUserTasks(user.uid);

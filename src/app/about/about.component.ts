@@ -14,7 +14,7 @@ import { AboutService } from './about.service';
 export class AboutComponent {
     faCaretRight = faCaretRight;
 
-    constructor(private aboutService: AboutService, private db: AngularFirestore) {
+    constructor(public aboutService: AboutService, private db: AngularFirestore) {
         aboutService.getSkills();
         aboutService.getExperiences();
     }

@@ -5,7 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
@@ -34,11 +34,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         AppRoutingModule,
         NgbModule,
         FontAwesomeModule,
+        AngularFireAuthModule,
         AngularFireModule.initializeApp(environment.firebase, 'resume-app'),
         AngularFirestoreModule
-    ],
-    providers: [
-        AngularFireAuth
     ],
     bootstrap: [ AppComponent ]
 })
