@@ -1,0 +1,32 @@
+<div class="row work-area">
+    <div class="col-12 col-md-8 order-4 order-md-3 journal-editing-region">
+        <h6>What are you doing today?</h6>
+        <div class="edit-groups">
+            <div class="tasks-to-edit input-group mb-3" *ngFor="let sessionTask of journalEditService.sessionTasks; let i=index; trackBy:trackByFn">
+                <textarea class="form-control" aria-label="Input task" [(ngModel)]="sessionTask.task"></textarea>
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-outline-info save-task" (click)="saveBlock(sessionTask)">
+                        <fa-icon [icon]="faSave"></fa-icon>
+                    </button>
+                    <button type="button" class="btn btn-outline-danger delete-task" (click)="deleteBlock(i, sessionTask.docId)">
+                        <fa-icon [icon]="faTrashAlt"></fa-icon>
+                    </button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-light new-task-region" (click)="addNewBlock()">
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
+        </div>
+    </div>
+    <div class="col-12 col-md-4 order-3 order-md-4 journal-display-region">
+        <h4>Things of the day</h4>
+        <div class="display-groups">
+            <ul class="list-group">
+                <li class="tasks list-group-item" *ngFor="let taskData of tasksSaved | async">
+                    <input type="checkbox" class="check-off-task" (click)="markDone(taskData.docId)" [checked]="taskData.accomplished">
+                    <span>{{ taskData.task }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

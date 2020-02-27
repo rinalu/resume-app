@@ -6,7 +6,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 @Injectable({
     providedIn: 'root'
 })
-export class JournalService {
+
+export class JournalEditService {
     sessionTasks:any[] = [];
     subscriptions:Subscription[] = [];
 

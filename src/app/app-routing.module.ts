@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './auth/auth.guard';
 import { AboutComponent } from './about/about.component';
-import { JournalComponent } from './journal/journal.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -13,15 +12,11 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-    {
-        path: 'journal',
-        component: JournalComponent
-    },
-    {
-        path: 'about',
-        canActivate: [AuthGuard],
-        component: AboutComponent
-    },
+    // {
+    //     path: 'about',
+    //     canActivate: [AuthGuard],
+    //     component: AboutComponent
+    // },
     {
         path: '',
         redirectTo: 'home',
